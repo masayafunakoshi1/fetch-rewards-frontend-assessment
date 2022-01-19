@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./TextFields.css";
 
-const TextFields = (setUserVals) => {
-  const handleSubmit = (data) => {
-    console.log(data);
+const TextFields = ({ userVals, setUserVals }) => {
+  const [emailState, setEmailState] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //currently only sets email, but can add others
+    setUserVals({ ...userVals, email: emailState });
+  };
+
+  const passwordCheck = (password) => {
+    console.log(password);
   };
 
   return (
     <div className="textFields-container">
-      <Form>
+      <Form onSubmit={(e) => handleSubmit(e)}>
         {/*Email Address Textfield */}
         <Form.Group className="basic-textfield" controlId="formEmail">
           <Form.Label>Email address</Form.Label>
@@ -18,6 +25,9 @@ const TextFields = (setUserVals) => {
             type="email"
             placeholder="Enter your email address"
             isInvalid={false}
+            onChange={(e) => {
+              setEmailState(e.target.value);
+            }}
           />
           <Form.Text muted>e.g. JohnSmith1@example.com</Form.Text>
         </Form.Group>
@@ -71,7 +81,7 @@ const TextFields = (setUserVals) => {
             {/* create options out of .map() of fetch call */}
           </Form.Select>
         </Form.Group>
-        <Button variant="warning" className="submitBtn">
+        <Button variant="warning" className="submitBtn" type="submit">
           Submit
         </Button>
       </Form>

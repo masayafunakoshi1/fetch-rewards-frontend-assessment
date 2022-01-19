@@ -27,7 +27,7 @@ const UserCreation = () => {
 
   return (
     <div>
-      <TextFields setUserVals={setUserVals} />
+      <TextFields userVals={userVals} setUserVals={setUserVals} />
     </div>
   );
 };
