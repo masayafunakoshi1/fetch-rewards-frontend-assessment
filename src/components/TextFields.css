@@ -1,12 +1,25 @@
-/* Mobile-first responsive design */
-
-.App {
+.textFields-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  overflow: hidden;
+  max-width: 800px;
+  height: auto;
+  font-family: "lexend", "Roboto", sans-serif;
+  margin: 25px;
 }
+
+.basic-textfield {
+  line-height: 11px;
+  margin: 20px 0 20px 0;
+}
+
+.submitBtn {
+}
+
+/* .text-muted {
+  color: rgb(122, 122, 122);
+  font-size: 14px;
+} */
 
 /*/////////////////////////////////// Tablets && Small Laptops /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 @media only Screen and (min-device-width: 600px) {
